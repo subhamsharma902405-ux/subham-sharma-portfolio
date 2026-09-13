@@ -10,9 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{--lime:#ff6fae}
+    .scroll-progress{position:fixed;z-index:20;top:0;left:0;width:100%;height:2px;background:var(--lime);transform:scaleX(0);transform-origin:left;box-shadow:0 0 14px rgba(216,243,107,.7);pointer-events:none}
+    @media (pointer:fine){body:after{content:'';position:fixed;z-index:-1;inset:0;background:radial-gradient(320px circle at var(--pointer-x,50%) var(--pointer-y,50%),rgba(216,243,107,.045),transparent 72%);pointer-events:none}}
+  </style>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Subham Sharma home"><span class="brand-mark">S<span class="brand-dot">.</span></span><span>Subham<br /><em>Sharma</em></span></a>

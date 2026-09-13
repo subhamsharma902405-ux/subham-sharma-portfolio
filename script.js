@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons();
 
+  const progressBar = document.querySelector('.scroll-progress');
+  const updateProgress = () => {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.transform = `scaleX(${scrollableHeight ? window.scrollY / scrollableHeight : 0})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  window.addEventListener('pointermove', (event) => {
+    document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+    document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+  }, { passive: true });
+
   const menuToggle = document.querySelector('.menu-toggle');
   const navigation = document.querySelector('.main-nav');
   menuToggle.addEventListener('click', () => {
